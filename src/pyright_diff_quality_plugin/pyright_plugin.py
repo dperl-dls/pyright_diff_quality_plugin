@@ -13,17 +13,21 @@ def run_process_parse_json(command):
 
 def get_violations(output):
     violations: list[Violation] = []
-
+    if output["summary"]["errorCount"] == 0:
+        return violations
+    diagnostics = output["generalDiagnostics"]
+    for diagnostic in diagnostics:
+        if diagnostic["severity"] == "error":
+            violations.append(Violation(diagnostic["range"]["start"]["line"], diagnostic["message"]))
     return violations
 
 class PyrightViolationReporter(BaseViolationReporter):
-    supported_extensions = ['json']
+    supported_extensions = ['py']
     def __init__(self):
         super(PyrightViolationReporter, self).__init__('pyright')
 
     def violations(self, src_path):
         pyright_output = run_process_parse_json(["pyright","--outputjson",src_path])
-        print(pyright_output)
         return get_violations(pyright_output)
 
     def measured_lines(self, src_path):
