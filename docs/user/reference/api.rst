@@ -1,14 +1,14 @@
 API
 ===
 
-.. automodule:: python3_pip_skeleton
+.. automodule:: pyright_diff_quality_plugin
 
-    ``python3_pip_skeleton``
+    ``pyright_diff_quality_plugin``
     -----------------------------------
 
-This is the internal API reference for python3_pip_skeleton
+This is the internal API reference for pyright_diff_quality_plugin
 
-.. data:: python3_pip_skeleton.__version__
+.. data:: pyright_diff_quality_plugin.__version__
     :type: str
 
     Version number as calculated by https://github.com/pypa/setuptools_scm
