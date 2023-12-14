@@ -1,37 +1,21 @@
 pyright_diff_quality_plugin
 ===========================
 
-|code_ci| |docs_ci| |coverage| |pypi_version| |license|
+|code_ci| |docs_ci| |coverage| |license|
 
-.. note::
-
-    This project contains template code only. For documentation on how to
-    adopt this skeleton project see
-    https://dperl-dls.github.io/pyright_diff_quality_plugin-cli
-
-This is where you should write a short paragraph that describes what your module does,
-how it does it, and why people should use it.
+A plugin for `diff_cover <https://github.com/Bachmann1234/diff_cover>`_ to enable Pyright as a quiality-checking tool.
 
 ============== ==============================================================
-PyPI           ``pip install pyright_diff_quality_plugin``
 Source code    https://github.com/dperl-dls/pyright_diff_quality_plugin
 Documentation  https://dperl-dls.github.io/pyright_diff_quality_plugin
 Releases       https://github.com/dperl-dls/pyright_diff_quality_plugin/releases
 ============== ==============================================================
 
-This is where you should put some images or code snippets that illustrate
-some relevant examples. If it is a library then you might put some
-introductory code here:
+For example, with diff-cover installed, you can run::
 
-.. code-block:: python
+    $ diff-quality --violations=pyright --fail-under=100
 
-    from pyright_diff_quality_plugin import __version__
-
-    print(f"Hello pyright_diff_quality_plugin {__version__}")
-
-Or if it is a commandline tool then you might put some example commands here::
-
-    $ python -m pyright_diff_quality_plugin --version
+To get a task which will fail if any modified code doesn't meet Pyright standards.
 
 .. |code_ci| image:: https://github.com/dperl-dls/pyright_diff_quality_plugin/actions/workflows/code.yml/badge.svg?branch=main
     :target: https://github.com/dperl-dls/pyright_diff_quality_plugin/actions/workflows/code.yml
@@ -57,4 +41,3 @@ Or if it is a commandline tool then you might put some example commands here::
     Anything below this line is used when viewing README.rst and will be replaced
     when included in index.rst
 
-See https://dperl-dls.github.io/pyright_diff_quality_plugin for more detailed documentation.
