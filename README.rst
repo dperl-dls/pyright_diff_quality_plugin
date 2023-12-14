@@ -7,7 +7,6 @@ A plugin for `diff_cover <https://github.com/Bachmann1234/diff_cover>`_ to enabl
 
 ============== ==============================================================
 Source code    https://github.com/dperl-dls/pyright_diff_quality_plugin
-Documentation  https://dperl-dls.github.io/pyright_diff_quality_plugin
 Releases       https://github.com/dperl-dls/pyright_diff_quality_plugin/releases
 ============== ==============================================================
 
@@ -20,10 +19,6 @@ To get a task which will fail if any modified code doesn't meet Pyright standard
 .. |code_ci| image:: https://github.com/dperl-dls/pyright_diff_quality_plugin/actions/workflows/code.yml/badge.svg?branch=main
     :target: https://github.com/dperl-dls/pyright_diff_quality_plugin/actions/workflows/code.yml
     :alt: Code CI
-
-.. |docs_ci| image:: https://github.com/dperl-dls/pyright_diff_quality_plugin/actions/workflows/docs.yml/badge.svg?branch=main
-    :target: https://github.com/dperl-dls/pyright_diff_quality_plugin/actions/workflows/docs.yml
-    :alt: Docs CI
 
 .. |coverage| image:: https://codecov.io/gh/dperl-dls/pyright_diff_quality_plugin/branch/main/graph/badge.svg
     :target: https://codecov.io/gh/dperl-dls/pyright_diff_quality_plugin
