@@ -11,6 +11,7 @@ def run_process_parse_json(command):
     output = json.loads(result.stdout)
     return output
 
+
 def get_violations(output):
     violations: list[Violation] = []
     if output["summary"]["errorCount"] == 0:
@@ -18,16 +19,20 @@ def get_violations(output):
     diagnostics = output["generalDiagnostics"]
     for diagnostic in diagnostics:
         if diagnostic["severity"] == "error":
-            violations.append(Violation(diagnostic["range"]["start"]["line"], diagnostic["message"]))
+            violations.append(
+                Violation(diagnostic["range"]["start"]["line"], diagnostic["message"])
+            )
     return violations
 
-class PyrightViolationReporter(BaseViolationReporter):
-    supported_extensions = ['py']
-    def __init__(self):
-        super(PyrightViolationReporter, self).__init__('pyright')
 
-    def violations(self, src_path):
-        pyright_output = run_process_parse_json(["pyright","--outputjson",src_path])
+class PyrightViolationReporter(BaseViolationReporter):
+    supported_extensions = ["py"]
+
+    def __init__(self):
+        super(PyrightViolationReporter, self).__init__("pyright")
+
+    def violations(self, src_path) -> list[Violation]:  # type: ignore
+        pyright_output = run_process_parse_json(["pyright", "--outputjson", src_path])
         return get_violations(pyright_output)
 
     def measured_lines(self, src_path):
@@ -35,7 +40,8 @@ class PyrightViolationReporter(BaseViolationReporter):
 
     @staticmethod
     def installed():
-        return run_command_for_code(["pyright","--verison"]) == 0
+        return run_command_for_code(["pyright", "--verison"]) == 0
+
 
 @diff_cover_hookimpl
 def diff_cover_report_quality(*args, **kwargs):
