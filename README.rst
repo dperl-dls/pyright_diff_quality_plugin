@@ -1,7 +1,7 @@
 pyright_diff_quality_plugin
 ===========================
 
-|code_ci| |docs_ci| |coverage| |license|
+|code_ci| |coverage| |pypi_version| |license|
 
 A plugin for `diff_cover <https://github.com/Bachmann1234/diff_cover>`_ to enable Pyright as a quiality-checking tool.
 
