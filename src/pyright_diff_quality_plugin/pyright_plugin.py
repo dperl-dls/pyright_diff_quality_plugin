@@ -1,5 +1,6 @@
 import json
 import subprocess
+from os.path import exists
 
 from diff_cover.command_runner import run_command_for_code
 from diff_cover.hook import hookimpl as diff_cover_hookimpl
@@ -32,6 +33,8 @@ class PyrightViolationReporter(BaseViolationReporter):
         super(PyrightViolationReporter, self).__init__("pyright")
 
     def violations(self, src_path) -> list[Violation]:  # type: ignore
+        if not exists(src_path):
+            return []
         pyright_output = run_process_parse_json(["pyright", "--outputjson", src_path])
         return get_violations(pyright_output)
 
